@@ -1,0 +1,181 @@
+<html>
+<head><title>DSA</title><link rel="shortcut icon" href="heap1.ico" type="image/x-icon" /></head>
+<body background="heap.gif">
+<link rel="stylesheet" type="text/css" href="1.css">
+<script src="myscript.js" ></script>
+<center><h1>Data Structures and Algorithms</h1></center>
+
+<ul class="top-level-menu">
+    <li><a href="home.html">Home</a></li>
+    <li>
+        <a href="#">Data Structures</a>
+        <ul class="second-level-menu">
+            <li>
+                <a href="#">1-D arrays</a>
+                <ul class="third-level-menu">
+                    <li><a href="array1.html">Arrays</a></li>
+                    <li><a href="stacks.html">Stacks</a></li>
+                    <li><a href="queues.html">Queues</a></li>
+                    <li><a href="linkedlist.html">Linked Lists</a></li>
+                    <li><a href="strings.html">Strings</a></li>
+                    <li><a href="hash.html">Hash Tables</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">2-D arrays</a>
+                <ul class="third-level-menu">
+                    <li><a href="smatrix.html">Simple Matrix</a></li>
+                    <li><a href="#">Sparse Matrix</a></li>
+                    <li><a href="amatrix.html">Adjacency Matrix</a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Record</a>
+                <ul class="third-level-menu">
+                    <li><a href="struct.html">Structure</a></li>
+                    <li><a href="class.html">Class</a></li>
+                    <li><a href="union.html">Union</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Trees</a>
+                <li><a href="b.html">Binary Trees</a></li>
+                <li><a href="binary.html">Binary Search Trees</a></li>
+                <li><a href="avl.html">AVL Trees</a></li>
+            </li>
+
+            <li><a href="#">Graphs</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">Algorithms</a>
+        <ul class="second-level-menu">
+            <li><a href="#">Searching</a>
+                <ul class="third-level-menu">
+                    <li><a href="#">Linear Search</a></li>
+                    <li><a href="#">Binary Search</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Recursion</a></li>
+            <li>
+                <a href="#">Sorting</a>
+                <ul class="third-level-menu">
+                    <li><a href="#">Selection Sort</a></li>
+                    <li><a href="#">Bubble Sort</a></li>
+                    <li><a href="#">Insertion Sort</a></li>
+                    <li><a href="#">Heap Sort</a></li>
+                    <li><a href="#">Quick Sort</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Dynamic Programming</a>
+                <ul class="third-level-menu">
+                    <li><a href="#">Rod-cutting</a></li>
+                    <li><a href="#">LCS</a></li>
+                    <li><a href="#">Matrix Multiplication</a></li>
+                    <li><a href="#">Knapsack</a></li>
+                    <li><a href="#">Traveling salesman</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Greedy algorthms</a>
+                <ul class="third-level-menu">
+                    <li><a href="#">Activity Selection</a></li>
+                    <li><a href="#">Huffman Coding</a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">BackTracking</a>
+                <ul class="third-level-menu">
+                    <li><a href="#">8-queen</a></li>
+                    <li><a href="#">Knapsack</a></li>
+                    <li><a href="#">Traveling Salesman</a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Branch and Bound</a>
+                <ul class="third-level-menu">
+                    <li><a href="#">LC branch-bound</a></li>
+                    <li><a href="#">Knapsack</a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><a href="#">Complexity</a></li>
+    <li><a href="about.html">About us</a></li>
+</ul>
+
+<br>
+<br>
+<hr noshade>
+<div class="des">This website is a tutorial webiste on Data Structures and several algorithms associated with them. Website contains brief explanation of each topic of Data Structures is provided along with several examples to provide a thorough understanding of the topic. For algorithms, a brief explanation is given to describe the problem followe by a program code in C/C++. Complexity discusses the techniques involved in finding the time/memory complexity of a problem. Basic concepts of Asymptotic notation is also discussed.</div>
+<hr noshade>
+
+
+
+<div id="comments_div">
+    <input type="text" id="comment_input" placeholder="Type your comment here">
+    <button id="publish" onclick="publish_comments()">Publish Comment</button>
+
+
+</div>
+
+<script type="text/javascript">
+
+    var count ;
+    if(localStorage.getItem('count'==null))
+        { count=0;     }
+    else{
+        count = localStorage.getItem('count');
+    }
+
+    function publish_comments(){
+    count++;
+    var input_text = document.getElementById("comment_input").value;
+    
+    var para = document.createElement("p");
+    
+    var text_element = document.createTextNode(input_text);
+    //console.log(text_element);
+    para.appendChild(text_element);
+    document.getElementById("comments_div").appendChild(para);
+    var comment_id = "id"+count;
+    console.log("id="+comment_id);
+    localStorage.setItem(comment_id,input_text);
+   document.getElementById("comment_input").value="";
+    localStorage.setItem("count",count);
+    }
+
+    function fetch_comments(){
+         if(localStorage.getItem('count'==null))
+            { count=0;}
+         else{
+        count = localStorage.getItem('count');
+    }
+    for(x=1;x<=count;x++){
+        var comment_text = localStorage.getItem("id"+x);
+       // console.log(comment_text);
+        var para = document.createElement("p");
+        var textNode = document.createTextNode(comment_text);
+        para.appendChild(textNode);
+        document.getElementById("comments_div").appendChild(para);
+        }
+    }
+ fetch_comments();
+</script>
+
+<div id="footer">
+        &copy; All rights reserved
+
+</div>
+
+</body>
+</html>
